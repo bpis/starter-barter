@@ -25,7 +25,8 @@
 			<li><a href="#">
 			<%= link_to(image_tag('icon1.jpg',:alt => "Facebook", id: "sign_in"), user_omniauth_authorize_path(:facebook)) %>Facebook</a></li>
 			<li><a href="#"><img src="/assets/icon2.jpg" alt="">Twitter</a></li>
-			<li><a href="#"><img src="/assets/icon3.jpg" alt="">LinkedIn</a></li>
+			<!-- <li><a href="#"><img src="/assets/icon3.jpg" alt="">LinkedIn</a></li> -->
+			<%= link_to(image_tag('icon3.jpg',:alt => "Linkedin", id: "sign_in"), user_omniauth_authorize_path(:linkedin)) %>Linkedin</a></li>
 		</ul>
   </section>
 	<section class="col_1">
@@ -46,7 +47,7 @@
   <script>
     window.fbAsyncInit = function() {
       FB.init({
-	appId      : '274580322644956',
+	appId      : '365146530246420',
 	status     : true,
 	channelURL : 'http://localhost:3000/channel.html',
 	cookie     : true,
@@ -86,3 +87,23 @@
       document.getElementById('fb-root').appendChild(e);
     }());
   </script>
+
+  <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+		api_key: 2c6hqixc9ahh
+		authorize: true
+	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.5b1.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>
+
+	<script type="text/javascript">
+
+	function loadData() {
+	IN.API.Raw("/groups/123456/posts")
+	.result(function(result) {
+	alert(JSON.stringify(result))
+	})
+	}
+
+</script>
+<script type="IN/Login" data-onAuth="loadData"></script>

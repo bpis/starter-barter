@@ -8,8 +8,9 @@ gem 'rails', '3.2.8'
 gem 'mysql2', :group => [:development, :test]
 gem 'carrierwave'
 gem "devise", ">= 2.1.2"
+gem 'omniauth'
 gem "omniauth-facebook", "1.4.0"
-
+gem 'omniauth-linkedin'
 
 # Gems used only for assets and not required
 # in production environments by default.

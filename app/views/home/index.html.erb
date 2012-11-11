@@ -1,4 +1,30 @@
-<!-- content -->
+
+<% if user_signed_in? %>
+<div class="wrapper">
+	<p class="pad_top1 pad_bot1">
+		<strong class="color1"> Your Profile </strong>
+	</p>
+	<p class="pad_bot3">
+		<%= image_tag(current_user.facebook_image) %><br /><br />
+		Email : <%= text_field_tag :email, current_user.email, :readonly => false %><br /><br>
+		First Name : <%= text_field_tag :email, current_user.first_name, :readonly => false %><br /><br />
+		Last Name : <%= text_field_tag :email, current_user.last_name, :readonly => false %><br /><br />
+		Username : <%= text_field_tag :email, current_user.username, :readonly => false %><br /><br />
+		About Me : <%= text_field_tag :email, current_user.about_me, :readonly => false %><br /><br />
+		Birthday : <%= text_field_tag :email, current_user.dob, :readonly => false %><br /><br />
+		Hometown : <%= text_field_tag :email, current_user.hometown, :readonly => false %><br /><br />
+		Location : <%= text_field_tag :email, current_user.location, :readonly => false %><br /><br />
+		Relationship : <%= text_field_tag :email, current_user.relationships, :readonly => false %><br /><br />
+		Gender : <%= text_field_tag :email, current_user.gender, :readonly => false %><br /><br />
+		Organisation : <%= text_field_tag :email, current_user.organisation, :readonly => false %><br /><br />
+		Designation : <%= text_field_tag :email, current_user.designation, :readonly => false %><br /><br />
+		Profession : <%= text_field_tag :email, current_user.profession, :readonly => false %><br /><br />
+		Facebook URL : <%= text_field_tag :email, current_user.facebook_url, :readonly => false %><br /><br />
+		Education : <%= text_field_tag :email, current_user.educational_details, :readonly => false %><br /><br />
+
+	</p>
+</div>
+<% end %>
 <article id="content">
 	<section class="col1">
 		<h2></h2>
@@ -7,7 +33,7 @@
 				<% if !user_signed_in? %>
 					<%= render :partial => 'devise/sessions/new_session' %>
 				<% end %>
-      </figure>
+      		</figure>
 			<p class="pad_bot1 pad_top1"><span class="color1"></span></p>
 			<p></p>
 		</div>
@@ -22,8 +48,13 @@
 			<p></p>
 		</div>
   </section>
-	<section class="col2">
-		<%= render :partial => 'content' %>
-	</section>
+	<% if !user_signed_in? %>
+		<section class="col2">
+			<%= render :partial => 'content' %>
+		</section>
+	<% end %>
 </article>
+
+
+
 <!-- / content -->
